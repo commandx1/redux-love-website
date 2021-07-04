@@ -22,6 +22,8 @@ const reducer = (state = initialState, action) => {
         ...record,
       };
     case LOGOUT:
+      sessionStorage.removeItem('user');
+      localStorage.removeItem('user');
       return { ...initialState };
     default:
       return state;

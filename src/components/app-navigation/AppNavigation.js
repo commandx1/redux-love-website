@@ -1,16 +1,20 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { Container, IconButton } from '@material-ui/core';
+import { Container, IconButton, Link } from '@material-ui/core';
 import { Close, Menu } from '@material-ui/icons';
 
 import DarkModeSwitch from 'components/dark-mode-switch';
 import Footer from 'components/footer';
 
 import './navigation.scss';
+import { logout } from 'store/actions/auth';
 
 const AppNavigation = props => {
   const [showNav, setShowNav] = useState(false);
+
+  const dispatch = useDispatch()
 
   const showNavigation = () => setShowNav(true);
   const closeNavigation = () => setShowNav(false);
@@ -46,6 +50,9 @@ const AppNavigation = props => {
           <NavLink to='/anilar' exact>
             Anılar
           </NavLink>
+          <Link onClick={() => dispatch(logout())}>
+            Çıkış Yap
+          </Link>
         </ul>
       </nav>
     </>
