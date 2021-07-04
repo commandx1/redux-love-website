@@ -4,7 +4,7 @@ import "./footer.scss";
 const Footer = () => {
   const [counter, setCounter] = useState();
 
-  function countUpFromTime(countFrom, id) {
+  function countUpFromTime(countFrom) {
     countFrom = new Date(countFrom).getTime();
     var now = new Date(),
       countFrom = new Date(countFrom),
@@ -30,12 +30,12 @@ const Footer = () => {
 
     clearTimeout(countUpFromTime.interval);
     countUpFromTime.interval = setTimeout(function () {
-      countUpFromTime(countFrom, id);
+      countUpFromTime(countFrom);
     }, 1000);
   }
 
   useEffect(() => {
-    countUpFromTime("Jun 18, 2019 22:00:00", "countup1");
+    countUpFromTime("Jun 18, 2019 22:00:00");
   }, [])
 
 
