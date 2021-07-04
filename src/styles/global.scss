@@ -1,0 +1,44 @@
+//colors
+$main-color: #5b78c7;
+$dm-main-color: #141d39;
+$text-bg-grey: #737373;
+
+//background
+$dm-bg: #121212;
+$bg: #f2f2f2;
+
+//fonts
+$font-size-big: 1.5rem;
+$font-size-lg: 1.25rem;
+$font-size-md: 1rem;
+$font-size-sm: 0.8rem;
+$font-weight-bold: 600;
+$font-weight-bolder: 700;
+$font-weight-light: 500;
+$font-weight-lighter: 400;
+
+//mixins
+
+@mixin transition($i) {
+  transition: $i;
+  -webkit-transition: $i;
+  -moz-transition: $i;
+  -ms-transition: $i;
+  -o-transition: $i;
+}
+
+@mixin transform($i) {
+  transform: $i;
+  -webkit-transform: $i;
+  -moz-transform: $i;
+  -ms-transform: $i;
+  -o-transform: $i;
+}
+
+@mixin radius($i) {
+  border-radius: $i;
+  -webkit-border-radius: $i;
+  -moz-border-radius: $i;
+  -ms-border-radius: $i;
+  -o-border-radius: $i;
+}

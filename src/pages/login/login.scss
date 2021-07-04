@@ -1,0 +1,69 @@
+@import '../../styles/global.scss';
+
+$blue: #42a5f5;
+$error: #f44336;
+
+.login-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('../../assets/bg.jpeg') no-repeat fixed center;
+  background-size: cover;
+
+  .login-content {
+    max-width: 80%;
+    width: 500px;
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba($color: #000000, $alpha: 0.7);
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: url('../../assets/bg.jpeg') no-repeat fixed center;
+      background-size: cover;
+      filter: blur(5px);
+      -webkit-filter: blur(5px);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      .MuiFormControl-root.MuiTextField-root {
+        margin-bottom: 1rem;
+        label {
+          color: $blue;
+        }
+        label.Mui-error {
+          color: $error;
+        }
+
+        .MuiInput-underline:before {
+          border-color: rgba(100, 181, 246, 0.2);
+        }
+
+        .MuiInput-underline:after {
+          border-color: $blue;
+        }
+        .MuiInput-underline.Mui-error:after {
+          border-color: $error;
+        }
+
+        input {
+          color: $blue;
+        }
+
+        .Mui-error input {
+          color: $error;
+        }
+      }
+    }
+  }
+}

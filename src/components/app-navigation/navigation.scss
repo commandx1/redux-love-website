@@ -1,0 +1,114 @@
+@import '../../styles/global.scss';
+
+.navigation-container {
+  background-color: #fafafa;
+  transform-origin: top left;
+  @include transition(0.4s linear);
+  width: 100vw;
+  min-height: 100vh;
+
+  .circle-container {
+    position: fixed;
+    top: -75px;
+    left: -75px;
+    z-index: 999999999;
+
+    .circle {
+      background-color: $main-color;
+      height: 150px;
+      width: 150px;
+      @include radius(50%);
+      position: relative;
+      @include transition(transform 0.5s linear);
+
+      button {
+        position: absolute;
+        top: 83px;
+        left: 80px;
+        font-size: 26px;
+        color: #fff;
+      }
+
+      button.close {
+        @include transform(rotate(90deg));
+        transform-origin: top left;
+        top: 73px;
+        left: 63px;
+        span {
+          @include transform(rotate(8deg));
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      top: -50px;
+      left: -50px;
+      .circle {
+        height: 100px;
+        width: 100px;
+        button {
+          top: 48px;
+          left: 46px;
+        }
+        button.close {
+          top: 41px;
+          left: 49px;
+        }
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    .content-container {
+      min-height: calc(100vh - 64px);
+      padding-top: 100px;
+      padding-bottom: 15px;
+    }
+  }
+}
+
+.nav {
+  position: fixed;
+  bottom: 200px;
+  left: 0;
+  z-index: 100;
+  @include transition(transform 0.5s ease-in);
+  @include transform(translateX(-150%));
+
+  ul {
+    padding-left: 30px;
+    a {
+      text-transform: uppercase;
+      color: #fff;
+      margin-top: 20px;
+      display: block;
+      text-decoration: none;
+    }
+
+    @for $i from 1 through 4 {
+      a:nth-child(#{$i}) {
+        margin-left: (($i - 1) * 9) + px;
+      }
+    }
+  }
+}
+
+.navigation-container.show-nav {
+  @include transform(rotate(-30deg));
+
+  .circle {
+    @include transform(rotate(-70deg));
+  }
+
+  & + .nav {
+    @include transform(translateX(0%));
+  }
+}
+
+.dark {
+  .navigation-container {
+    background: black;
+  }
+}
