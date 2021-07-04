@@ -33,7 +33,7 @@ const AppNavigation = props => {
           </div>
         </div>
         <div className='content'>
-          <Container className="content-container"> {props.children}</Container>
+          <Container fixed className="content-container"> {props.children}</Container>
           <div style={{ flex: 1 }}></div>
           <Footer />
         </div>

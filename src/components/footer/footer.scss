@@ -7,4 +7,10 @@ footer {
   align-items: center;
   justify-content: center;
   background: $main-color;
+  color: white;
+  @include transition(300ms);
+}
+
+.dark footer {
+  background: $dm-main-color;
 }

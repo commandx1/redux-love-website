@@ -1,4 +1,4 @@
-@import '../../styles/global.scss';
+@import "../../styles/global.scss";
 
 .memory-titles {
   cursor: pointer;
@@ -6,13 +6,29 @@
     padding: 0.75rem;
     height: 100%;
     @include transition(300ms);
+    display: flex;
+    align-items: center;
+    
     &:hover {
-      background-color: #121212;
+      background: #121212;
       color: white;
+      filter: drop-shadow(2px 4px 6px black);
+      -webkit-filter: drop-shadow(2px 4px 6px black);
     }
 
     h4 {
       text-transform: capitalize;
+    }
+  }
+}
+
+.dark {
+  .memory-titles .paper {
+    background: $dm-card-bg;
+    color: $dm-card-text;
+
+    &:hover {
+      background: hsl(240, 1%, 11%);
     }
   }
 }

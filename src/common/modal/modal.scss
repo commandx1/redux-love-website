@@ -1,4 +1,4 @@
-@import '../../styles/global.scss';
+@import "../../styles/global.scss";
 .backdrop {
   position: fixed;
   width: 100%;
@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   z-index: 100;
-  background: rgba($color: #000000, $alpha: 0.7);
+  background: rgba($color: #000000, $alpha: 0.85);
 }
 .modal-wrapper {
   transition: 300ms;
@@ -30,9 +30,13 @@
     background: white;
     max-height: 60vh;
     overflow-y: auto;
-    @include radius(.3rem);
-    box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.7),
-    0 0 6px rgba($color: #000000, $alpha: 0.7);;
+    @include radius(0.3rem);
+    box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.7), 0 0 6px rgba($color: #000000, $alpha: 0.7);
+    
+    p {
+      font-weight: 500;
+    }
+
     &::-webkit-scrollbar {
       width: 7px;
     }
@@ -54,7 +58,7 @@
     .modal-title {
       margin-bottom: 1rem;
     }
-    .modal-footer{
+    .modal-footer {
       margin-top: 1rem;
       text-align: right;
       font-weight: 600;
@@ -62,4 +66,8 @@
       text-decoration: overline;
     }
   }
+}
+
+.dark .modal-container {
+  background: $dm-modal-bg;
 }

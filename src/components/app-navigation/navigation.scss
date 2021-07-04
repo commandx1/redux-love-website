@@ -19,7 +19,7 @@
       width: 150px;
       @include radius(50%);
       position: relative;
-      @include transition(transform 0.5s linear);
+      @include transition(300ms linear);
 
       button {
         position: absolute;
@@ -60,6 +60,8 @@
   .content {
     display: flex;
     flex-direction: column;
+    background: $bg;
+    @include transition(400ms);
 
     .content-container {
       min-height: calc(100vh - 64px);
@@ -110,5 +112,13 @@
 .dark {
   .navigation-container {
     background: black;
+
+    .circle{
+      background-color: $dm-main-color;
+    }
+
+    .content{
+      background: $dm-bg;
+    }
   }
 }
