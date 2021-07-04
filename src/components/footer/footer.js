@@ -44,7 +44,7 @@ const Footer = () => {
       <div>
         {counter && Object.keys(counter).map(key => 
           <Fragment key={key}>
-            <span> {counter[key]}</span>
+            <span> {counter?.[key]}</span>
             <span> {key}</span>
           </Fragment>
           )}
