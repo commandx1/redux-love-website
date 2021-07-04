@@ -1,14 +1,25 @@
 //colors
-$text-bg-grey: #737373;
-$dm-card-text: hsl(240, 1%, 70%);
+$text-bg-grey: hsl(0, 0%, 45%);
+$dm-card-text: hsl(240, 1%, 60%);
 
-//background
-$main-color: #5b78c7;
-$dm-main-color: #141d39;
-$dm-bg: #121212;
-$bg: #f2f2f2;
-$dm-card-bg: hsl(240, 1%, 26%);
-$dm-modal-bg: #686868;
+//bg
+$main-color: hsl(224, 49%, 57%);
+$bg: hsl(0, 0%, 95%);
+
+//hover-bg
+$hover-main-color: hsl(224, 49%, 37%);
+$hover-card-bg: hsl(0, 0%, 80%);
+
+
+//dm
+$dm-main-color: hsl(225, 48%, 15%);
+$dm-bg: hsl(0, 0%, 7%);
+$dm-card-bg: hsl(240, 1%, 25%);
+$dm-modal-bg: hsl(0, 0%, 41%);
+
+//hover-dm-bg
+$hover-dm-card-bg: hsl(240, 1%, 15%);
+$hover-dm-dark-text: hsl(240, 1%, 70%);
 
 //fonts
 $font-size-big: 1.5rem;

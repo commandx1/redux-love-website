@@ -48,12 +48,12 @@
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-      background: rgb(112, 161, 173);
+      background: $main-color;
     }
 
     /* Handle on hover */
     &::-webkit-scrollbar-thumb:hover {
-      background: rgb(40, 160, 190);
+      background: $hover-main-color;
     }
     .modal-title {
       margin-bottom: 1rem;

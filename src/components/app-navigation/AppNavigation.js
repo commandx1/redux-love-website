@@ -40,7 +40,9 @@ const AppNavigation = props => {
       </div>
       <nav className='nav'>
         <ul>
-          <DarkModeSwitch />
+          <a>          
+            <DarkModeSwitch />
+          </a>
           <NavLink to='/' exact>
             Anasayfa
           </NavLink>

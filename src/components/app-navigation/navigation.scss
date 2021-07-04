@@ -1,11 +1,11 @@
-@import '../../styles/global.scss';
+@import "../../styles/global.scss";
 
 .navigation-container {
-  background-color: #fafafa;
   transform-origin: top left;
   @include transition(0.4s linear);
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+  transition-delay: 350ms;
 
   .circle-container {
     position: fixed;
@@ -58,8 +58,8 @@
   }
 
   .content {
-    display: flex;
-    flex-direction: column;
+    height: 100vh;
+    overflow: auto;
     background: $bg;
     @include transition(400ms);
 
@@ -76,36 +76,48 @@
   bottom: 200px;
   left: 0;
   z-index: 100;
-  @include transition(transform 0.5s ease-in);
-  @include transform(translateX(-150%));
 
   ul {
-    padding-left: 30px;
+    padding-left: 20px;
     a {
       text-transform: uppercase;
       color: #fff;
       margin-top: 20px;
       display: block;
       text-decoration: none;
+      font-weight: 500;
+      @include transition(transform 500ms ease-in);
+      @include transform(translateX(-200%));
+      @media (max-width: 767px) {
+        font-size: 14px;
+      }
     }
 
     @for $i from 1 through 5 {
       a:nth-child(#{$i}) {
         margin-left: (($i - 1) * 9) + px;
+        transition-delay: (($i - 1) * 70) + ms;
+        @media (max-width: 767px) {
+          margin-left: (($i - 1) * 5) + px;
+        }
       }
     }
   }
 }
 
 .navigation-container.show-nav {
-  @include transform(rotate(-30deg));
+  @include transform(rotate(-20deg));
+  transition-delay: 0ms;
 
   .circle {
-    @include transform(rotate(-70deg));
+    @include transform(rotate(-76deg));
   }
 
   & + .nav {
     @include transform(translateX(0%));
+    a {
+      @include transform(translateX(0%));
+    }
   }
 }
 
@@ -113,11 +125,11 @@
   .navigation-container {
     background: black;
 
-    .circle{
+    .circle {
       background-color: $dm-main-color;
     }
 
-    .content{
+    .content {
       background: $dm-bg;
     }
   }

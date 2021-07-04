@@ -10,10 +10,7 @@
     align-items: center;
     
     &:hover {
-      background: #121212;
-      color: white;
-      filter: drop-shadow(2px 4px 6px black);
-      -webkit-filter: drop-shadow(2px 4px 6px black);
+      background: $hover-card-bg;
     }
 
     h4 {
@@ -28,7 +25,8 @@
     color: $dm-card-text;
 
     &:hover {
-      background: hsl(240, 1%, 11%);
+      background: $hover-dm-card-bg;
+      color: $hover-dm-dark-text;
     }
   }
 }
