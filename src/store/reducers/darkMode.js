@@ -6,7 +6,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_DM_FROM_LOCALSTORAGE:
       const darkMode = localStorage.getItem('dark_mode');
-      if (darkMode !== null) {
+      if (darkMode !== null || darkMode !== undefined) {
         return darkMode === 'true' ? true : false;
       }
       break;

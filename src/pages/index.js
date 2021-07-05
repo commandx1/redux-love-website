@@ -1,5 +1,7 @@
-import Home from './home';
-import Login from './login';
-import Memories from './memories';
+import { lazy } from 'react';
+
+const Home = lazy(() => import('./home'));
+const Login = lazy(() => import('./login'));
+const Memories = lazy(() => import('./memories'));
 
 export { Home, Login, Memories };
