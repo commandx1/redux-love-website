@@ -1,4 +1,4 @@
-@import "../../styles/global.scss";
+@import '../../styles/global.scss';
 
 .navigation-container {
   transform-origin: top left;
@@ -89,7 +89,7 @@
       @include transition(transform 500ms ease-in);
       @include transform(translateX(-200%));
       @media (max-width: 767px) {
-        font-size: 14px;
+        font-size: 13px;
       }
     }
 
@@ -98,7 +98,7 @@
         margin-left: (($i - 1) * 9) + px;
         transition-delay: (($i - 1) * 70) + ms;
         @media (max-width: 767px) {
-          margin-left: (($i - 1) * 5) + px;
+          margin-left: (($i - 1) * 3) + px;
         }
       }
     }
@@ -108,6 +108,10 @@
 .navigation-container.show-nav {
   @include transform(rotate(-20deg));
   transition-delay: 0ms;
+
+  @media (max-width: 767px) {
+    @include transform(rotate(-27deg));
+  }
 
   .circle {
     @include transform(rotate(-76deg));

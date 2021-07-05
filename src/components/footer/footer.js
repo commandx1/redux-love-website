@@ -1,5 +1,6 @@
-import React, { useState, useEffect, Fragment } from "react";
-import "./footer.scss";
+import React, { useState, useEffect, Fragment } from 'react';
+import Container from '@material-ui/core/Container'
+import './footer.scss';
 
 const Footer = () => {
   const [counter, setCounter] = useState();
@@ -35,21 +36,21 @@ const Footer = () => {
   }
 
   useEffect(() => {
-    countUpFromTime("Jun 18, 2019 22:00:00");
-  }, [])
-
+    countUpFromTime('Jun 18, 2019 22:00:00');
+  }, []);
 
   return (
     <footer>
-      <div>
-        {counter && Object.keys(counter).map(key => 
-          <Fragment key={key}>
-            <span> {counter?.[key]}</span>
-            <span> {key}</span>
-          </Fragment>
-          )}
-          {' '}benimsin...
-      </div>
+      <Container fixed style={{ textAlign: 'center' }}>
+        {counter &&
+          Object.keys(counter).map(key => (
+            <Fragment key={key}>
+              <span> {counter?.[key]}</span>
+              <span> {key}</span>
+            </Fragment>
+          ))}{' '}
+        benimsin...
+      </Container>
     </footer>
   );
 };
