@@ -67,3 +67,16 @@ $error: #f44336;
     }
   }
 }
+
+@media (max-width: 574px) {
+  .login-container {
+    background: url('../../assets/login-bg-mobile.jpg') no-repeat fixed center;
+    background-size: 600px 100%;
+    .login-content::before {
+      background: url('../../assets/login-bg-mobile.jpg') no-repeat fixed center;
+      background-size: 600px 100%;
+      filter: blur(2px);
+      -webkit-filter: blur(2px);
+    }
+  }
+}
