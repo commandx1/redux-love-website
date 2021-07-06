@@ -2,7 +2,6 @@ import { Modal } from 'common';
 import React from 'react';
 
 const MemoryModal = ({ memory, open, onClose }) => {
-  console.log(memory);
   return (
     <Modal open={open} onClose={onClose}>
       <div
