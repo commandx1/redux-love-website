@@ -2,7 +2,8 @@ import { Suspense, lazy } from 'react';
 
 import { useSelector } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router';
-import { LoaderHeart } from 'common';
+
+import { LinearProgress } from '@material-ui/core';
 
 import AppNavigation from 'components/app-navigation';
 
@@ -16,7 +17,7 @@ const Router = () => {
     <Suspense
       fallback={
         <div>
-          <LoaderHeart />
+          <LinearProgress color='secondary' />
         </div>
       }
     >

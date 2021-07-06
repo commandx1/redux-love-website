@@ -1,4 +1,4 @@
-@import "../../styles/global.scss";
+@import '../../styles/global.scss';
 .backdrop {
   position: fixed;
   width: 100%;
@@ -31,8 +31,9 @@
     max-height: 60vh;
     overflow-y: auto;
     @include radius(0.3rem);
-    box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.7), 0 0 6px rgba($color: #000000, $alpha: 0.7);
-    
+    box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.7),
+      0 0 6px rgba($color: #000000, $alpha: 0.7);
+
     p {
       font-weight: 500;
     }
@@ -70,4 +71,19 @@
 
 .dark .modal-container {
   background: $dm-modal-bg;
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 45%);
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $dm-main-color;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: $dm-main-color;
+  }
 }

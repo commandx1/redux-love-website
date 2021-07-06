@@ -5,11 +5,13 @@ import { Grid, Paper } from '@material-ui/core';
 import { Modal, Snackbar, LoaderHeart } from 'common';
 
 import './memories.scss';
+import MemoryModal from './memory-modal';
 
 const Memories = () => {
   const { isLoading, sendRequest, error, clearError } = useHttpClient();
   const [memories, setMemories] = useState();
   const [selectedMemory, setSelectedMemory] = useState();
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -24,7 +26,14 @@ const Memories = () => {
 
   const selectMemory = id => {
     setSelectedMemory(memories.find(m => m.id === id));
+    setOpenModal(true);
   };
+
+  const removeSelectedMemory = () => {
+    setSelectedMemory(null);
+    setOpenModal(false);
+  };
+
   return (
     <Grid container spacing={3}>
       {memories?.map(m => (
@@ -42,12 +51,10 @@ const Memories = () => {
           </Paper>
         </Grid>
       ))}
-      <Modal
-        open={selectedMemory}
-        title={selectedMemory?.title}
-        content={selectedMemory?.content}
-        onClose={() => setSelectedMemory(null)}
-        footer={selectedMemory?.username}
+      <MemoryModal
+        memory={selectedMemory}
+        open={openModal}
+        onClose={removeSelectedMemory}
       />
       <Snackbar open={error} onClose={clearError} text={error} />
       {isLoading && <LoaderHeart />}
