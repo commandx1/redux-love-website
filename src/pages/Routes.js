@@ -10,6 +10,7 @@ import AppNavigation from 'components/app-navigation';
 const Home = lazy(() => import('./home'));
 const Login = lazy(() => import('./login'));
 const Memories = lazy(() => import('./memories'));
+const Poems = lazy(() => import('./poems'));
 
 const Router = () => {
   const { auth, darkMode } = useSelector(state => state);
@@ -31,7 +32,9 @@ const Router = () => {
               <Route path='/anilar'>
                 <Memories />
               </Route>
-              <Redirect to='/' exact />
+              <Route path='/siirler'>
+                <Poems />
+              </Route>
             </Switch>
           </AppNavigation>
         ) : (
@@ -39,7 +42,6 @@ const Router = () => {
             <Route path='/' exact>
               <Login />
             </Route>
-            <Redirect to='/' exact />
           </Switch>
         )}
       </div>

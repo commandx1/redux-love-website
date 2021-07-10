@@ -14,7 +14,7 @@ import { logout } from 'store/actions/auth';
 const AppNavigation = props => {
   const [showNav, setShowNav] = useState(false);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const showNavigation = () => setShowNav(true);
   const closeNavigation = () => setShowNav(false);
@@ -33,14 +33,17 @@ const AppNavigation = props => {
           </div>
         </div>
         <div className='content'>
-          <Container fixed className="content-container"> {props.children}</Container>
+          <Container fixed className='content-container'>
+            {' '}
+            {props.children}
+          </Container>
           <div style={{ flex: 1 }}></div>
           <Footer />
         </div>
       </div>
       <nav className='nav'>
         <ul>
-          <a>          
+          <a>
             <DarkModeSwitch />
           </a>
           <NavLink to='/' exact>
@@ -52,9 +55,10 @@ const AppNavigation = props => {
           <NavLink to='/anilar' exact>
             Anılar
           </NavLink>
-          <Link onClick={() => dispatch(logout())}>
-            Çıkış Yap
-          </Link>
+          <NavLink to='/siirler' exact>
+            Şiirler
+          </NavLink>
+          <Link onClick={() => dispatch(logout())}>Çıkış Yap</Link>
         </ul>
       </nav>
     </>

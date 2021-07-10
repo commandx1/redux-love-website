@@ -93,7 +93,7 @@
       }
     }
 
-    @for $i from 1 through 5 {
+    @for $i from 1 through 6 {
       a:nth-child(#{$i}) {
         margin-left: (($i - 1) * 9) + px;
         transition-delay: (($i - 1) * 70) + ms;
