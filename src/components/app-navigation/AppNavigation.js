@@ -49,15 +49,10 @@ const AppNavigation = props => {
           <NavLink to='/' exact>
             Anasayfa
           </NavLink>
-          <NavLink to='/hakkimizda' exact>
-            Hakkımızda
-          </NavLink>
-          <NavLink to='/anilar' exact>
-            Anılar
-          </NavLink>
-          <NavLink to='/siirler' exact>
-            Şiirler
-          </NavLink>
+          <NavLink to='/hakkimizda'>Hakkımızda</NavLink>
+          <NavLink to='/anilar'>Anılar</NavLink>
+          <NavLink to='/siirler'>Şiirler</NavLink>
+          <NavLink to='/galeri'>Galeri</NavLink>
           <Link onClick={() => dispatch(logout())}>Çıkış Yap</Link>
         </ul>
       </nav>

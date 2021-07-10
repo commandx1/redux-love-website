@@ -87,13 +87,13 @@
       text-decoration: none;
       font-weight: 500;
       @include transition(transform 500ms ease-in);
-      @include transform(translateX(-200%));
+      @include transform(translateX(-250%));
       @media (max-width: 767px) {
         font-size: 13px;
       }
     }
 
-    @for $i from 1 through 6 {
+    @for $i from 1 through 7 {
       a:nth-child(#{$i}) {
         margin-left: (($i - 1) * 9) + px;
         transition-delay: (($i - 1) * 70) + ms;

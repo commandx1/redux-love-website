@@ -17,7 +17,9 @@ const Modal = ({
       <div className='backdrop' style={style}></div>
       <div
         className={`modal-wrapper ${wrapperClass}`}
-        onClick={onClose}
+        onClick={e => {
+          e.target.classList.contains('modal-wrapper') && onClose();
+        }}
         style={wrapperStyle ?? style}
       >
         <div className={`modal-container ${containerClass}`}>{children}</div>

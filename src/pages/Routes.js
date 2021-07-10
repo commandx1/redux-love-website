@@ -11,6 +11,7 @@ const Home = lazy(() => import('./home'));
 const Login = lazy(() => import('./login'));
 const Memories = lazy(() => import('./memories'));
 const Poems = lazy(() => import('./poems'));
+const Gallery = lazy(() => import('./gallery'));
 
 const Router = () => {
   const { auth, darkMode } = useSelector(state => state);
@@ -34,6 +35,9 @@ const Router = () => {
               </Route>
               <Route path='/siirler'>
                 <Poems />
+              </Route>
+              <Route path='/galeri'>
+                <Gallery />
               </Route>
             </Switch>
           </AppNavigation>
