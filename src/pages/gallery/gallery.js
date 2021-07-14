@@ -29,15 +29,11 @@ const Gallery = () => {
   };
 
   useEffect(() => {
-    const h = document.querySelector('#test').scrollHeight;
     (async () => {
       try {
-        document.querySelector('#test').style.height = h + 'px';
         const response = await sendRequest(
           process.env.REACT_APP_BACKEND_URL + 'upload/' + pagination?.pageNumber
         );
-        document.querySelector('#test').style.height =
-          response?.images?.length > 4 ? 'auto' : document.querySelector('#test').scrollHeight + 'px';
         setImages(response.images);
         setPagination({
           pageNumber: response?.pageNumber,
@@ -59,7 +55,7 @@ const Gallery = () => {
               md={4}
               lg={3}
               key={i.id}
-              style={{ height: '35vh' }}
+              className="thumbnails"
               onClick={() => handleModalOpen(i)}
             >
               <img
@@ -76,6 +72,7 @@ const Gallery = () => {
         <Snackbar open={error} onClose={clearError} text={error} />
         {isLoading && <LoaderHeart />}
       </Grid>
+      <div style={{ flex: 1 }} />
       <Pagination
         count={pagination?.total ? Math.ceil(pagination.total / 8) : 1}
         page={parseInt(pagination?.pageNumber ?? 1)}
