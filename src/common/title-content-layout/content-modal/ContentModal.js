@@ -22,6 +22,14 @@ const ContentModal = ({ selectedData, open, onClose, dataType }) => {
               __html: selectedData?.content ?? 'İçerik yüklenemedi...',
             }}
           />
+          {selectedData?.imageUrl && (
+            <img
+              src={process.env.REACT_APP_IMAGE_URL + selectedData?.imageUrl}
+              alt={selectedData?.title}
+              width='250'
+            />
+          )}
+
           <div className='modal-footer'>{selectedData?.username}</div>
         </Modal>
       );
