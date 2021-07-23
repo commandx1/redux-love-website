@@ -24,6 +24,8 @@
   align-items: center;
   justify-content: center;
   .modal-container {
+    display: flex;
+    flex-direction: column;
     width: 700px;
     max-width: 80%;
     padding: 1rem;
@@ -36,6 +38,15 @@
 
     p {
       font-weight: 500;
+      line-height: 24px;
+    }
+
+    img {
+      max-width: 100%;
+      margin: 1rem auto;
+      @include radius(0.4rem);
+      border: 2px solid $main-color;
+      object-fit: contain;
     }
 
     &::-webkit-scrollbar {
@@ -58,6 +69,9 @@
     }
     .modal-title {
       margin-bottom: 1rem;
+    }
+    .modal-content {
+      white-space: pre-wrap;
     }
     .modal-footer {
       margin-top: 1rem;

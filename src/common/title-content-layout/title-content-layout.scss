@@ -17,6 +17,11 @@
       text-transform: capitalize;
     }
   }
+
+  .paper.new-memory {
+    background: $main-color;
+    color: $bg;
+  }
 }
 
 .dark {
@@ -27,6 +32,16 @@
     &:hover {
       background: $hover-dm-card-bg;
       color: $hover-dm-dark-text;
+    }
+  }
+
+  .paper.new-memory {
+    background: $dm-main-color;
+    color: $bg;
+    &:hover {
+      background: $dm-main-color;
+      color: $bg;
+      @include transform(scale(1.03));
     }
   }
 }
