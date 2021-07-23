@@ -19,7 +19,7 @@
   img {
     max-width: 100%;
     max-height: 250px;
-    margin: 1rem auto 0;
+    margin: 0 auto 1rem;
     object-fit: contain;
     display: block;
     border: 1px solid rgba($color: #000000, $alpha: 0.6);
@@ -33,10 +33,9 @@
 
   .btn-group {
     display: flex;
-    flex-direction: column;
     margin-top: 1rem;
     button:first-child {
-      margin-bottom: 0.35rem;
+      margin-right: 0.35rem;
     }
   }
 }

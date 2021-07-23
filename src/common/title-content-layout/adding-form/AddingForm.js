@@ -19,7 +19,7 @@ const initialNewMemory = {
 
 const initialStyle = { marginTop: -250, opacity: 0 };
 
-const AddingForm = ({ onCancel }) => {
+const AddingForm = ({ onCancel, addMemoryToState }) => {
   const { auth } = useSelector(state => state);
   const { sendRequest, isLoading, error, clearError } = useHttpClient();
   const [newMemory, setNewMemory] = useState(initialNewMemory);
@@ -44,8 +44,8 @@ const AddingForm = ({ onCancel }) => {
         formData
       );
       setNewMemory(initialNewMemory);
-      console.log(responseData);
       onCancel();
+      addMemoryToState(responseData.memory);
     } catch (err) {}
   };
 
@@ -71,6 +71,17 @@ const AddingForm = ({ onCancel }) => {
   return (
     <form className='add-new-form' onSubmit={addNewMemory} style={style}>
       <h4>Yeni Anı</h4>
+      <input type='file' onChange={fileChangeHandler} />
+      <Button
+        color='primary'
+        variant='contained'
+        startIcon={<Photo />}
+        onClick={() => document.querySelector('input[type="file"]').click()}
+        style={{ marginBottom: '1rem' }}
+      >
+        Resim Yükle
+      </Button>
+      {newMemory.imageUrl && <img src={newMemory.imageUrl} />}
       <Input
         type='text'
         label='Başlık'
@@ -86,17 +97,6 @@ const AddingForm = ({ onCancel }) => {
         value={newMemory.content}
         onChange={inputChangeHandler}
       />
-      <input type='file' onChange={fileChangeHandler} />
-      <Button
-        color='primary'
-        variant='contained'
-        startIcon={<Photo />}
-        onClick={() => document.querySelector('input[type="file"]').click()}
-        style={{ marginTop: '1rem' }}
-      >
-        Resim Yükle
-      </Button>
-      {newMemory.imageUrl && <img src={newMemory.imageUrl} />}
       <div className='btn-group'>
         <Button type='submit' color='primary' variant='contained'>
           Gönder
