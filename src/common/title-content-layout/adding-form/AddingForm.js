@@ -19,11 +19,12 @@ const initialNewMemory = {
 
 const initialStyle = { marginTop: -250, opacity: 0 };
 
-const AddingForm = ({ onCancel, addMemoryToState }) => {
+const AddingForm = ({ onCancel, addMemoryToState, addButtonHeight }) => {
   const { auth } = useSelector(state => state);
   const { sendRequest, isLoading, error, clearError } = useHttpClient();
   const [newMemory, setNewMemory] = useState(initialNewMemory);
   const [style, setStyle] = useState(initialStyle);
+  const [formHeight, setFormHeight] = useState();
 
   const inputChangeHandler = e => {
     setNewMemory(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -66,6 +67,9 @@ const AddingForm = ({ onCancel, addMemoryToState }) => {
   };
 
   useEffect(() => {
+    const formScrollHeight =
+      document.querySelector('.add-new-form').scrollHeight;
+    setFormHeight(formScrollHeight);
     setStyle({ marginTop: 0, opacity: 1 });
   }, []);
   return (
@@ -101,7 +105,17 @@ const AddingForm = ({ onCancel, addMemoryToState }) => {
         <Button type='submit' color='primary' variant='contained'>
           Gönder
         </Button>
-        <Button color='secondary' variant='contained' onClick={onCancel}>
+        <Button
+          color='secondary'
+          variant='contained'
+          onClick={() => {
+            setStyle({
+              ...initialStyle,
+              marginTop: -(formHeight - addButtonHeight) + 'px',
+            });
+            setTimeout(onCancel, 700);
+          }}
+        >
           İptal
         </Button>
       </div>

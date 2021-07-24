@@ -14,11 +14,19 @@ const TitleContentLayout = ({ dataType }) => {
   const [data, setData] = useState();
   const [selectedData, setSelectedData] = useState();
   const [openModal, setOpenModal] = useState(false);
+  const [addButtonHeight, setAddButtonHeight] = useState();
 
   const deleteMemoryFromState = id =>
     setData(prev => prev.filter(d => d._id !== id));
 
   const addMemoryToState = newMemory => setData(prev => [newMemory, ...prev]);
+
+  useEffect(() => {
+    if (!isAddingFormVisible) {
+      const buttonHeight = document.querySelector('.new-memory')?.scrollHeight;
+      setAddButtonHeight(buttonHeight);
+    }
+  }, [isAddingFormVisible]);
 
   useEffect(() => {
     (async () => {
@@ -66,6 +74,8 @@ const TitleContentLayout = ({ dataType }) => {
               <AddingForm
                 onCancel={cancelForm}
                 addMemoryToState={addMemoryToState}
+                setIsAddingFormVisible={setIsAddingFormVisible}
+                addButtonHeight={addButtonHeight}
               />
             </div>
           ) : (
