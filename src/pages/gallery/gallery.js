@@ -28,6 +28,10 @@ const Gallery = () => {
     setSelectedImage(null);
   };
 
+  const deleteFromState = id => {
+    setImages(images.filter(i => i._id !== id));
+  };
+
   useEffect(() => {
     (async () => {
       try {
@@ -55,7 +59,7 @@ const Gallery = () => {
               md={4}
               lg={3}
               key={i.id}
-              className="thumbnails"
+              className='thumbnails'
               onClick={() => handleModalOpen(i)}
             >
               <img
@@ -92,6 +96,7 @@ const Gallery = () => {
         open={openModal}
         onClose={handleModalClose}
         img={selectedImage}
+        deleteFromState={deleteFromState}
       />
     </div>
   );

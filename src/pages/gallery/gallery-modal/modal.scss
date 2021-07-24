@@ -1,0 +1,17 @@
+.img-box {
+  .deleteBtn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    color: rgb(53, 5, 13);
+  }
+  .MuiSnackbar-root .MuiPaper-root {
+    background: #4caf50;
+    min-width: 270px;
+    align-items: center;
+    display: flex;
+    * {
+      color: white;
+    }
+  }
+}

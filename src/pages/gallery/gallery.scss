@@ -32,7 +32,7 @@
     @include transition(300ms);
     img {
       max-width: 90%;
-      max-height: 90%;
+      max-height: 80%;
       object-fit: contain;
       border-radius: 20px;
       @include radius(20px);
