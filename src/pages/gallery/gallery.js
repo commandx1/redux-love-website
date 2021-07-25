@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useHttpClient from 'hooks/useHttpClient';
 
-import './gallery.scss';
-import { useState } from 'react';
-import { Grid } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import { LoaderHeart, Snackbar } from 'common';
 import { Pagination } from '@material-ui/lab';
 import GalleryModal from './gallery-modal';
+import { Photo } from '@material-ui/icons';
+import './gallery.scss';
 
 const Gallery = () => {
   const [images, setImages] = useState();
@@ -32,6 +32,23 @@ const Gallery = () => {
     setImages(images.filter(i => i._id !== id));
   };
 
+  const fileChangeHandler = async e => {
+    if (e?.target?.files?.[0]) {
+      try {
+        const formData = new FormData();
+        formData.append('image', e.target.files[0]);
+        const response = await sendRequest(
+          process.env.REACT_APP_BACKEND_URL + 'upload',
+          'POST',
+          formData
+        );
+        console.log(response);
+      } catch (error) {}
+    } else {
+      console.log('seçilmedi');
+    }
+  };
+
   useEffect(() => {
     (async () => {
       try {
@@ -49,6 +66,22 @@ const Gallery = () => {
 
   return (
     <div className='gallery-container'>
+      <input
+        type='file'
+        style={{ display: 'none' }}
+        onChange={fileChangeHandler}
+      />
+      <Button
+        startIcon={<Photo />}
+        style={{ marginBottom: 15, marginRight: 'auto' }}
+        variant='contained'
+        onClick={() => {
+          document.querySelector('input[type="file"]').click();
+        }}
+      >
+        Fotoğraf Ekle
+      </Button>
+
       <Grid container spacing={2} id='test'>
         {!isLoading &&
           images &&
